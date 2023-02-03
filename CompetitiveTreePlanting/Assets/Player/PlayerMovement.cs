@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem.HID;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -12,9 +14,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float attackCooldown = 1;
     [SerializeField] float dashCooldown = 1;
     [SerializeField] float cooldownSpeed = .01f;
+    [SerializeField] UnityEvent<Vector3> tryInteract = new UnityEvent<Vector3>();
 
     private Vector2 moveVector = Vector2.zero;
-    private Vector2 dashVector = Vector2.zero;
+    private Vector2 direction = Vector2.zero;
     private GGJInputActions inputControls;
     private Coroutine performHit;
     private Coroutine performDash;
@@ -80,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Interact()
     {
-        Debug.Log("Interact with this shit!");
+        tryInteract.Invoke(new Vector3(direction.x, 0, direction.y));
     }
 
     private void FixedUpdate()
@@ -89,12 +92,12 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Move!");
             rigidBody.AddForce(new Vector3(moveVector.x * speed, 0, moveVector.y * speed), ForceMode.Impulse);
-            dashVector = moveVector;
+            direction = moveVector;
         }
         if(!dashPerformed) 
         {
             Debug.Log("Dash!");
-            rigidBody.AddForce(new Vector3(dashVector.x * dashForce, 0, dashVector.y * dashForce), ForceMode.Impulse);
+            rigidBody.AddForce(new Vector3(direction.x * dashForce, 0, direction.y * dashForce), ForceMode.Impulse);
             dashPerformed = true;
         }
     }
