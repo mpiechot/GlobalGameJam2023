@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float dashForce = 1;
     [SerializeField] float attackCooldown = 1;
     [SerializeField] float dashCooldown = 1;
-    [SerializeField] float cooldownSpeed = .01f;
     [SerializeField] UnityEvent<Vector3> tryInteract = new UnityEvent<Vector3>();
 
     private Vector2 moveVector = Vector2.zero;

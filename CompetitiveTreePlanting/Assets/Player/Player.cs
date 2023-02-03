@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] CarryableObjects carryableObjects;
+    [SerializeField] CarryableObjects? carryableObjects;
 
     private Guid playerId;
     private Interactable? carriedObject;
@@ -33,6 +33,11 @@ public class Player : MonoBehaviour
 
     private void CarryObject(InteractableType type)
     {
+        if(carryableObjects == null)
+        {
+            throw new InvalidOperationException($"Serialized Field {nameof(carryableObjects)} was not set in the inspector!");
+        }
+
         if(carriedObject != null)
         {
             // We already carry something. We need to destroy it to carry something new.
