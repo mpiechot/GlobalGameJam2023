@@ -7,9 +7,6 @@ public class Timer : MonoBehaviour
 {
     public UnityEvent OnTimeout;
 
-    //public delegate void TimeoutEvent();
-    //public TimeoutEvent OnTimeout;
-
     [SerializeField]
     protected float waittime;
     public float Waittime
@@ -27,9 +24,11 @@ public class Timer : MonoBehaviour
     protected float timeout;
 
     private bool isActive = false;
+    private float initialWaittime;
 
     void Start()
     {
+        initialWaittime = waittime;
         if (startOnAwake)
         {
             SetTimeOut();
@@ -54,6 +53,7 @@ public class Timer : MonoBehaviour
     {
         if (!oneShot)
         {
+            waittime = initialWaittime;
             SetTimeOut();
         }
         else
@@ -70,7 +70,20 @@ public class Timer : MonoBehaviour
     }
 
     public void Run()
-    {
+    { 
         SetTimeOut();
     }
+
+    public void Pause()
+    {
+        waittime = timeout - Time.time;
+        isActive = false;
+    }
+
+    public void Unpause()
+    {
+        SetTimeOut();
+        isActive = true;
+    }
+
 }

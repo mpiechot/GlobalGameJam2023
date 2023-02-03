@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RequirementActivator : MonoBehaviour
 {
+    public UnityEvent OnRequirementActivated;
+
     [SerializeField, Tooltip("Ref. to the RequirementsContainer")]
     private RequirementsContainer requirementsContainer;
 
@@ -18,7 +21,9 @@ public class RequirementActivator : MonoBehaviour
         GameObject newRequirement = requirementsContainer.RequirementTypes[rand];
         newRequirement.SetActive(true);
 
-        requirementTimer.Stop();
+        OnRequirementActivated?.Invoke();
+        //requirementTimer.Stop();
+
     }
 
 
