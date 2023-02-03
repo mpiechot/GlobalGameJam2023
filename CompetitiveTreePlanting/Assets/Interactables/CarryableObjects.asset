@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46f35d7881b279449e77f644dde7cc8, type: 3}
+  m_Name: CarryableObjects
+  m_EditorClassIdentifier: 
+  waterPotPrefab: {fileID: 8830220693364853627, guid: 0f77285b808a92047b24e5f875eded0b, type: 3}
+  fertilizerPrefab: {fileID: 8105059179456269003, guid: a4b14719ecd213f4aa9850fa77b09a48, type: 3}
