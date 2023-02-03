@@ -89,13 +89,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Math.Abs(moveVector.magnitude) > .1f)
         {
-            Debug.Log("Move!");
             rigidBody.AddForce(new Vector3(moveVector.x * speed, 0, moveVector.y * speed), ForceMode.Impulse);
             direction = moveVector;
         }
         if(!dashPerformed) 
         {
-            Debug.Log("Dash!");
             rigidBody.AddForce(new Vector3(direction.x * dashForce, 0, direction.y * dashForce), ForceMode.Impulse);
             dashPerformed = true;
         }

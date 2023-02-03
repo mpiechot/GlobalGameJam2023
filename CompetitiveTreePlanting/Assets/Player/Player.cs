@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
 
     public void Interact(Vector3 direction)
     {
-        Debug.Log("Interact with this shit!");
         Collider[] objectsToInteractWith = Physics.OverlapSphere(transform.position + transform.forward, 1f);
 
         foreach (Collider obj in objectsToInteractWith)
@@ -25,7 +24,6 @@ public class Player : MonoBehaviour
             if (obj.transform.TryGetComponent<Interactable>(out var interactable))
             {
                 CarryObject(interactable.Type);
-                Debug.Log("Carry: " + interactable.Type);
                 return;
             }
         }
