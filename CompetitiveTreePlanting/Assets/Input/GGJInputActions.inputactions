@@ -22,6 +22,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Hit",
+                    "type": "Button",
+                    "id": "c99ca5f0-ef31-4847-9dc4-7b3d61ca6569",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "19892fc2-db3d-4ef5-b5d1-d8f071b3ba79",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -137,8 +155,8 @@
                 },
                 {
                     "name": "",
-                    "id": "340d6b29-4dac-45b9-ae96-680364eb7dd9",
-                    "path": "<Keyboard>/space",
+                    "id": "24bf090a-bc34-4786-89d8-0fb0fd92537c",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -148,12 +166,45 @@
                 },
                 {
                     "name": "",
-                    "id": "24bf090a-bc34-4786-89d8-0fb0fd92537c",
-                    "path": "<Keyboard>/e",
+                    "id": "7dabc17e-32be-497e-9671-70e07c81bf4c",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "Hit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0df24fac-9559-4f65-aeaa-0c7b36be1625",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3bf699dd-266e-48ad-8da1-b9d2ff8062a3",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6604720d-50e4-4f1a-93f0-b8e5a6f0cae8",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
