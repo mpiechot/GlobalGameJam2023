@@ -4,35 +4,22 @@ using UnityEngine;
 
 public class RequirementActivator : MonoBehaviour
 {
-    [SerializeField, Tooltip("Requirements a tree might have; e.g. water / fertilizer")]
-    private GameObject[] requirementTypes;
+    [SerializeField, Tooltip("Ref. to the RequirementsContainer")]
+    private RequirementsContainer requirementsContainer;
 
     [SerializeField, Tooltip("Reference to the RequirementTimer")]
     private RandomTimer requirementTimer;
 
-    void Start()
-    {
-        DeactivateRequirements();
-    }
-
     public void OnRequirementTimerTimeout()
     {
-        Debug.Log("BAM");
-        DeactivateRequirements();
+        //requirementsContainer.DeactivateRequirements();
 
-        int rand = Random.Range(0, requirementTypes.Length);
-        GameObject newRequirement = requirementTypes[rand];
+        int rand = Random.Range(0, requirementsContainer.RequirementTypes.Length);
+        GameObject newRequirement = requirementsContainer.RequirementTypes[rand];
         newRequirement.SetActive(true);
 
         requirementTimer.Stop();
     }
 
-    private void DeactivateRequirements()
-    {
-        foreach(GameObject go in requirementTypes)
-        {
-            go.SetActive(false);
-        }
-    }
 
 }

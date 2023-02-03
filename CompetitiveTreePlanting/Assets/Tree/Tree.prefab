@@ -111,6 +111,9 @@ GameObject:
   - component: {fileID: 4327821996918073516}
   - component: {fileID: 4327821996918073507}
   - component: {fileID: 4327821996918073512}
+  - component: {fileID: 4327821996946705079}
+  - component: {fileID: 4327821996946705080}
+  - component: {fileID: 4327821996946705081}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -211,9 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79869727858af714786f1e90a0527e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requirementTypes:
-  - {fileID: 4327821997096430631}
-  - {fileID: 4327821996391789120}
+  requirementsContainer: {fileID: 4327821996946705079}
   requirementTimer: {fileID: 4327821996918073512}
 --- !u!114 &4327821996918073512
 MonoBehaviour:
@@ -247,6 +248,89 @@ MonoBehaviour:
   oneShot: 0
   minWaittime: 3
   maxWaittime: 5
+--- !u!114 &4327821996946705079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327821996918073506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd0c1d3901238d4684487d82c18d6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirementTypes:
+  - {fileID: 4327821997096430631}
+  - {fileID: 4327821996391789120}
+--- !u!114 &4327821996946705080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327821996918073506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de24c2657533de49a2bdb88e8eb1b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDelivery:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4327821996918073512}
+        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+        m_MethodName: Run
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4327821996946705079}
+        m_TargetAssemblyTypeName: RequirementsContainer, Assembly-CSharp
+        m_MethodName: DeactivateRequirements
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  requirementsContainer: {fileID: 4327821996946705079}
+--- !u!114 &4327821996946705081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327821996918073506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fb8847d079d4e41bab55e1ce30f2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionDetected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4327821996946705080}
+        m_TargetAssemblyTypeName: DeliveryValidator, Assembly-CSharp
+        m_MethodName: OnCollisionDetected
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  assignedPlayer: {fileID: 0}
 --- !u!1 &4327821997096430631
 GameObject:
   m_ObjectHideFlags: 0
