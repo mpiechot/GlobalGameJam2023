@@ -352,6 +352,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 2099263650}
   speed: 5
+  dashForce: 100
+  attackCooldown: 1
+  dashCooldown: 1
+  cooldownSpeed: 0.005
 --- !u!136 &2099263652
 CapsuleCollider:
   m_ObjectHideFlags: 0
