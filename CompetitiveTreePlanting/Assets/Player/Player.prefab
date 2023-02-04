@@ -33,7 +33,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4616193143529822459}
   - {fileID: 4106848717602077643}
   m_Father: {fileID: 41070045975728275}
   m_RootOrder: 1
@@ -309,7 +308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ba38c9530c66d4e96cb29a0bfc5c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   playerInteraction: {fileID: 253386026}
+  deathThreshhold: -1
 --- !u!54 &41070045975728278
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -363,13 +364,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3515785600290124040}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9990001, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.011840574, y: 0.011840576, z: 0.01184058}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2146245837}
-  m_RootOrder: 0
+  m_Father: {fileID: 6984301371310183587}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4572504213712395296
 PrefabInstance:
@@ -380,7 +381,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 81dd3189b1181fd4fb91a4b2c8e02290, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81dd3189b1181fd4fb91a4b2c8e02290, type: 3}
       propertyPath: m_LocalScale.x
@@ -455,6 +456,11 @@ PrefabInstance:
 --- !u!4 &4106848717602077643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 81dd3189b1181fd4fb91a4b2c8e02290, type: 3}
+  m_PrefabInstance: {fileID: 4572504213712395296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6984301371310183587 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6888806815857526915, guid: 81dd3189b1181fd4fb91a4b2c8e02290, type: 3}
   m_PrefabInstance: {fileID: 4572504213712395296}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &7934878492805390769 stripped

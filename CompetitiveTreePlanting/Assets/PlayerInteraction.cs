@@ -6,9 +6,15 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+
+    public delegate void Interaction();
+    public event Interaction? OnPickUp;
+    public event Interaction? OnDrop;
+
+
     [SerializeField] CarryableObjects? carryableObjects;
-    [SerializeField] Transform carryObjectLocation;
-    [SerializeField] Player player;
+    [SerializeField] Transform? carryObjectLocation;
+    [SerializeField] Player? player;
 
     private Interactable? carriedObject;
 
@@ -28,6 +34,21 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
+    private void Drop()
+    {
+        if (carriedObject != null)
+        {
+            Destroy(carriedObject.gameObject);
+            OnDrop.Invoke();
+        }
+    }
+
+    private void PickUp(Interactable prefab) 
+    {
+        carriedObject = Instantiate(prefab, carryObjectLocation.position, carryObjectLocation.transform.rotation, carryObjectLocation);
+        OnPickUp.Invoke();
+    }
+
     private void CarryObject(InteractableType type, GameObject interactedObject)
     {
         if (carryableObjects == null)
@@ -38,19 +59,19 @@ public class PlayerInteraction : MonoBehaviour
         if (carriedObject != null && type != InteractableType.TREE)
         {
             // We already carry something and we don't interact with the tree. We need to destroy it to carry something new.
-            Destroy(carriedObject.gameObject);
+            Drop();
         }
 
         switch (type)
         {
             case InteractableType.WATER:
                 {
-                    carriedObject = Instantiate(carryableObjects.waterPotPrefab, carryObjectLocation.position, Quaternion.identity, carryObjectLocation);
-                    break;
+                    PickUp(carryableObjects.waterPotPrefab);
+                      break;
                 }
             case InteractableType.FERTILIZER:
                 {
-                    carriedObject = Instantiate(carryableObjects.fertilizerPrefab, carryObjectLocation.position, Quaternion.identity, carryObjectLocation);
+                    PickUp(carryableObjects.fertilizerPrefab);
                     break;
                 }
             case InteractableType.TREE:
@@ -68,7 +89,7 @@ public class PlayerInteraction : MonoBehaviour
 
                     if (carriedObject != null && tree.FeedTree(carriedObject.Type))
                     {
-                        Destroy(carriedObject.gameObject);
+                        Drop();
                     }
 
                     break;
