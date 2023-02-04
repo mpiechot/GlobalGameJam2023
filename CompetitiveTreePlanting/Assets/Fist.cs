@@ -17,7 +17,6 @@ public class Fist : MonoBehaviour
 
     public void ExecuteHit()
     {
-        GetComponent<Animator>().SetTrigger("Hit");
         for(int i = 0; i < targets.Count; i++)
         {
             targets[i].AddForce(transform.forward * 100, ForceMode.Impulse);

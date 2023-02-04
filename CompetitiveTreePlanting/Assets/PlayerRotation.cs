@@ -13,6 +13,7 @@ public class PlayerRotation : MonoBehaviour
     float t;
     Quaternion fromRotation;
     Quaternion toRotation;
+    float fromToAngle;
 
     public void Awake()
     {
@@ -25,6 +26,7 @@ public class PlayerRotation : MonoBehaviour
         t = 0;
         fromRotation = avatar.rotation;
         toRotation = Quaternion.LookRotation(new Vector3(movement.x, 0, movement.y), Vector3.up);
+        fromToAngle = Quaternion.Angle(fromRotation, toRotation);
     }
 
     private void OnEnable()
@@ -39,7 +41,7 @@ public class PlayerRotation : MonoBehaviour
 
     public void Update()
     {
-        t += Time.deltaTime * angleSpeed;
+        t += Time.deltaTime / fromToAngle * angleSpeed;
         Quaternion nextRotation = Quaternion.Slerp(fromRotation, toRotation, t);
         avatar.rotation = nextRotation;
     }
