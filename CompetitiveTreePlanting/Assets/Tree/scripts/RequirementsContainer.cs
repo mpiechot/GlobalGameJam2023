@@ -5,9 +5,9 @@ using UnityEngine;
 public class RequirementsContainer : MonoBehaviour
 {
     [SerializeField, Tooltip("Requirements a tree might have; e.g. water / fertilizer")]
-    private Interactable[] requirementTypes;
+    private Requirement[] requirementTypes;
 
-    public Interactable[] RequirementTypes
+    public Requirement[] RequirementTypes
     {
         get { return requirementTypes; }
     }
@@ -19,10 +19,9 @@ public class RequirementsContainer : MonoBehaviour
 
     public void DeactivateRequirements()
     {
-        foreach (Interactable go in requirementTypes)
+        foreach (Requirement go in requirementTypes)
         {
             go.gameObject.SetActive(false);
         }
     }
-
 }

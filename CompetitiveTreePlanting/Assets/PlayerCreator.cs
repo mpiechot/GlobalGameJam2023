@@ -4,28 +4,22 @@ using UnityEngine;
 
 public class PlayerCreator : MonoBehaviour
 {
-    [SerializeField] private int playerCount;
-    [SerializeField] private Player playerPrefab;
+    [SerializeField] private Player player;
     [SerializeField] private Tree treePrefab;
-    [SerializeField] private Transform spawnPos;
 
-    [SerializeField] private Vector3 spawnAreaCenter;
+    private Vector3 spawnAreaCenter;
     [SerializeField] private Vector3 spawnAreaSize;
     [SerializeField] private bool DrawSpawnArea = false;
 
-
     private void Start()
     {
-        for (int i = 0; i < playerCount; i++)
-        {
-            //Create a new Player at a random position
-            Player newPlayer = Instantiate(playerPrefab, CreateSpawnPosition(), Quaternion.identity, transform);
-            newPlayer.Initialize();
+        //Initialize the Player to set his personal id
+        player.Initialize();
+        spawnAreaCenter = player.transform.position;
 
-            //Create a tree for the player at a random position
-            Tree newTree = Instantiate(treePrefab, CreateSpawnPosition(), Quaternion.identity, transform);
-            newTree.Initialize(newPlayer.PlayerId);
-        }
+        //Create a tree for the player at a random position
+        Tree newTree = Instantiate(treePrefab, CreateSpawnPosition(), Quaternion.identity, transform);
+        newTree.Initialize(player.PlayerId);
     }
 
     private Vector3 CreateSpawnPosition()
@@ -38,11 +32,11 @@ public class PlayerCreator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if(!DrawSpawnArea)
+        if (!DrawSpawnArea)
         {
             return;
         }
-
+        spawnAreaCenter = player.transform.position;
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(transform.localPosition + spawnAreaCenter, spawnAreaSize);
     }

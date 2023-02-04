@@ -1,7 +1,5 @@
 using Assets;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,7 +11,7 @@ public class Tree : MonoBehaviour
     [SerializeField, Tooltip("Reference to the GrowthTimer")]
     private Timer growthTimer;
 
-    private Interactable requirement;
+    private Requirement requirement;
 
     public UnityEvent OnDelivery;
 
@@ -38,7 +36,7 @@ public class Tree : MonoBehaviour
         return false;
     }
 
-    public void SetRequirementForTree(Interactable requirement) 
+    public void SetRequirementForTree(Requirement requirement) 
     { 
         this.requirement = requirement;
         requirementTimer.Stop();
