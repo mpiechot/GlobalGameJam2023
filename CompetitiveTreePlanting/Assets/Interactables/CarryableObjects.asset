@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CarryableObjects
   m_EditorClassIdentifier: 
   waterPotPrefab: {fileID: 8830220693364853627, guid: 0f77285b808a92047b24e5f875eded0b, type: 3}
-  fertilizerPrefab: {fileID: 8105059179456269003, guid: a4b14719ecd213f4aa9850fa77b09a48, type: 3}
+  fertilizerPrefab: {fileID: 4728027080158145549, guid: 6e0cfb8bd404f9c46985e28328319f64, type: 3}
