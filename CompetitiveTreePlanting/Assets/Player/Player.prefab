@@ -441,8 +441,8 @@ MonoBehaviour:
   tryInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6225662310370509579}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 253386026}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
         m_MethodName: Interact
         m_Mode: 0
         m_Arguments:
