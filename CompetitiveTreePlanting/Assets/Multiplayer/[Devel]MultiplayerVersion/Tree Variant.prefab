@@ -57,6 +57,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b7d07c632e29e4db57b32e8ef608fa, type: 3}
+--- !u!114 &560799534371791296 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2947520078611573081, guid: c3b7d07c632e29e4db57b32e8ef608fa, type: 3}
+  m_PrefabInstance: {fileID: 3400197728168708249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378223517555384379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9921d2a24d194c445ab5a095fd5097c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1378223517555384379 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4327821996918073506, guid: c3b7d07c632e29e4db57b32e8ef608fa, type: 3}
@@ -84,6 +95,7 @@ MonoBehaviour:
     RawGuidValue: 95f7a493457956844bd5c4aaf19dc8d5
   NestedObjects: []
   NetworkedBehaviours:
+  - {fileID: 560799534371791296}
   - {fileID: 1152774861}
   SimulationBehaviours: []
 --- !u!114 &1152774861
