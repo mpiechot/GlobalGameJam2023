@@ -7,6 +7,9 @@ public class RequirementsContainer : MonoBehaviour
     [SerializeField, Tooltip("Requirements a tree might have; e.g. water / fertilizer")]
     private Requirement[] requirementTypes;
 
+    [SerializeField]
+    private Animator requirementsBubbleAnimator;
+
     public Requirement[] RequirementTypes
     {
         get { return requirementTypes; }
@@ -19,9 +22,6 @@ public class RequirementsContainer : MonoBehaviour
 
     public void DeactivateRequirements()
     {
-        foreach (Requirement go in requirementTypes)
-        {
-            go.gameObject.SetActive(false);
-        }
+        requirementsBubbleAnimator.SetTrigger("Hide");
     }
 }

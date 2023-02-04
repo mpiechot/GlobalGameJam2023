@@ -79,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Hit!");
 
         BroadcastMessage("ExecuteHit");
+        animator.SetTrigger("Hit");
 
         currentHitCooldown = Time.time;
         while(Time.time - currentHitCooldown < attackCooldown)

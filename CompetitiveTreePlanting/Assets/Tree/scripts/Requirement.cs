@@ -1,11 +1,13 @@
 using Assets;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class Requirement : MonoBehaviour
+[Serializable]
+public class Requirement
 {
-    [SerializeField] private InteractableType type;
+    [field: SerializeField]
+    public InteractableType Type { get; set; }
 
-    public InteractableType Type => type;
+    [field: SerializeField]
+    public Sprite Sprite { get; set; }
 }

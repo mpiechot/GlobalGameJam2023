@@ -14,7 +14,6 @@ public class RequirementActivator : MonoBehaviour
     {
         int rand = Random.Range(0, requirementsContainer.RequirementTypes.Length);
         Requirement newRequirement = requirementsContainer.RequirementTypes[rand];
-        newRequirement.gameObject.SetActive(true);
 
         OnRequirementActivated?.Invoke(newRequirement);
     }
