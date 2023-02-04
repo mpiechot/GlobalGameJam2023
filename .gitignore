@@ -65,4 +65,4 @@ crashlytics-build.properties
 
 # ignore UserSettings folder
 **/UserSettings/
-
+/[Tt]est[Bb]uilds/
