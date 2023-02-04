@@ -181,18 +181,6 @@ MonoBehaviour:
   OnRequirementActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4128868456825239045}
-        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-        m_MethodName: Stop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 4327821996946705081}
         m_TargetAssemblyTypeName: Tree, Assembly-CSharp
         m_MethodName: SetRequirementForTree
@@ -206,7 +194,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   requirementsContainer: {fileID: 4327821996946705079}
-  requirementTimer: {fileID: 4327821996918073512}
 --- !u!114 &4327821996918073512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,36 +253,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fb8847d079d4e41bab55e1ce30f2e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requirementTimer: {fileID: 4327821996918073512}
+  growthTimer: {fileID: 4128868456825239045}
   OnDelivery:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4327821996918073512}
-        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-        m_MethodName: Run
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 4327821996946705079}
         m_TargetAssemblyTypeName: RequirementsContainer, Assembly-CSharp
         m_MethodName: DeactivateRequirements
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4128868456825239045}
-        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-        m_MethodName: Run
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -342,12 +307,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2947520078611573081}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: LevelUp, Assembly-CSharp
+        m_MethodName: OnLevelUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

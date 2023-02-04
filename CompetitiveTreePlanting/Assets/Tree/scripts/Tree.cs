@@ -7,6 +7,12 @@ using UnityEngine.Events;
 
 public class Tree : MonoBehaviour
 {
+    [SerializeField, Tooltip("Reference to the RequirementTimer")]
+    private RandomTimer requirementTimer;
+
+    [SerializeField, Tooltip("Reference to the GrowthTimer")]
+    private Timer growthTimer;
+
     private Interactable requirement;
 
     public UnityEvent OnDelivery;
@@ -25,6 +31,8 @@ public class Tree : MonoBehaviour
         if(feedType == requirement.Type)
         {
             OnDelivery?.Invoke();
+            requirementTimer.Run();
+            growthTimer.Unpause();
             return true;
         }
         return false;
@@ -33,5 +41,7 @@ public class Tree : MonoBehaviour
     public void SetRequirementForTree(Interactable requirement) 
     { 
         this.requirement = requirement;
+        requirementTimer.Stop();
+        growthTimer.Pause();
     }
 }
