@@ -8,12 +8,14 @@ using UnityEngine.InputSystem.HID;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speed = 1;
-    [SerializeField] float dashForce = 1;
-    [SerializeField] float dashPushbackForce = 0.3f;
-    [SerializeField] float attackCooldown = 1;
-    [SerializeField] float dashCooldown = 1;
-    [SerializeField] UnityEvent<Vector3> tryInteract = new UnityEvent<Vector3>();
+    [SerializeField] private Animator animator;
+    [SerializeField] private float speed = 1;
+    [SerializeField] private float dashForce = 1;
+    [SerializeField] private float dashPushbackForce = 0.3f;
+    [SerializeField] private float attackCooldown = 1;
+    [SerializeField] private float dashCooldown = 1;
+    [SerializeField] private UnityEvent<Vector3> tryInteract = new UnityEvent<Vector3>();
+
 
     private Vector2 moveVector = Vector2.zero;
     private Vector2 direction = Vector2.zero;
@@ -104,6 +106,11 @@ public class PlayerMovement : MonoBehaviour
             rigidbody.AddForce(new Vector3(direction.x * dashForce, 0, direction.y * dashForce), ForceMode.Impulse);
             dashPerformed = true;
         }
+    }
+
+    public void Update()
+    {
+        animator.SetFloat("Speed", rigidbody.velocity.magnitude/8);
     }
 
     private void OnEnable()
