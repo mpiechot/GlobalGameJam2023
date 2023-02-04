@@ -20,6 +20,7 @@ public class PlayerCreator : MonoBehaviour
         //Create a tree for the player at a random position
         Tree newTree = Instantiate(treePrefab, CreateSpawnPosition(), Quaternion.identity, transform);
         newTree.Initialize(player.PlayerId);
+        player.SetTree(newTree);
     }
 
     private Vector3 CreateSpawnPosition()
