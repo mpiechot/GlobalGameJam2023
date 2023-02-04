@@ -58,11 +58,11 @@ namespace MultiplayerDev
                 data.direction += Vector3.right;
 
             if (_mouseButton0)
-                data.buttons |= NetworkInputData.MOUSEBUTTON1;
+                data.buttons |= NetworkInputData.INTERACT;
             _mouseButton0 = false;
 
             if (_mouseButton1)
-                data.buttons |= NetworkInputData.MOUSEBUTTON2;
+                data.buttons |= NetworkInputData.HIT;
             _mouseButton1 = false;
 
             input.Set(data);

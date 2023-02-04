@@ -31,7 +31,7 @@ namespace MultiplayerDev
 
                 if (delay.ExpiredOrNotRunning(Runner))
                 {
-                    if ((data.buttons & NetworkInputData.MOUSEBUTTON1) != 0)
+                    if ((data.buttons & NetworkInputData.INTERACT) != 0)
                     {
                         delay = TickTimer.CreateFromSeconds(Runner, 0.5f);
                         Runner.Spawn(_prefabBall,
@@ -44,7 +44,7 @@ namespace MultiplayerDev
                               o.GetComponent<Ball>().Init();
                           });
                     }
-                    else if ((data.buttons & NetworkInputData.MOUSEBUTTON2) != 0)
+                    else if ((data.buttons & NetworkInputData.HIT) != 0)
                     {
                         delay = TickTimer.CreateFromSeconds(Runner, 0.5f);
                         Runner.Spawn(_prefabPhysxBall,

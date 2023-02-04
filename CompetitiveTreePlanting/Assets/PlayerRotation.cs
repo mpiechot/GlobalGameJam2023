@@ -1,14 +1,16 @@
+using Fusion;
+using MultiplayerDev;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRotation : MonoBehaviour
+public class PlayerRotation : NetworkBehaviour
 {
 
     public Transform avatar;
     public float angleSpeed = 1;
 
-    private GGJInputActions inputControls;
+    //private GGJInputActions inputControls;
 
     float t;
     Quaternion fromRotation;
@@ -17,8 +19,17 @@ public class PlayerRotation : MonoBehaviour
 
     public void Awake()
     {
-        inputControls = new GGJInputActions();
-        inputControls.Player.Movement.performed += ctx => SetRotation(ctx.ReadValue<Vector2>());
+        //inputControls = new GGJInputActions();
+        //inputControls.Player.Movement.performed += ctx => SetRotation(ctx.ReadValue<Vector2>());
+    }
+
+    public override void FixedUpdateNetwork()
+    {
+        if (GetInput(out NetworkInputData data))
+        {
+            if (data.direction.magnitude > 0.5f)
+                SetRotation(data.direction);
+        }
     }
 
     public void SetRotation(Vector2 movement)
@@ -31,12 +42,12 @@ public class PlayerRotation : MonoBehaviour
 
     private void OnEnable()
     {
-        inputControls.Enable();
+        //inputControls.Enable();
     }
 
     private void OnDisable()
     {
-        inputControls.Disable();
+        //inputControls.Disable();
     }
 
     public void Update()
