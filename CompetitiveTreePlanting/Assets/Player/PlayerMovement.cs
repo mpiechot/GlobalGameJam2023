@@ -48,6 +48,18 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (GetInput(out NetworkInputData data))
         {
+            if((data.buttons & NetworkInputData.INTERACT) != 0)
+            {
+                Interact();
+            }
+            if ((data.buttons & NetworkInputData.HIT) != 0)
+            {
+                TryHit();
+            }
+            if ((data.buttons & NetworkInputData.DASH) != 0)
+            {
+                TryDash();
+            }
             moveVector = data.direction.normalized;
         }
     }
