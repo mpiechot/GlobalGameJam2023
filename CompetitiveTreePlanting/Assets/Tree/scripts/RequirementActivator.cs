@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class RequirementActivator : MonoBehaviour
 {
-    public UnityEvent OnRequirementActivated;
+    public UnityEvent<Interactable> OnRequirementActivated;
 
     [SerializeField, Tooltip("Ref. to the RequirementsContainer")]
     private RequirementsContainer requirementsContainer;
@@ -18,12 +18,11 @@ public class RequirementActivator : MonoBehaviour
         //requirementsContainer.DeactivateRequirements();
 
         int rand = Random.Range(0, requirementsContainer.RequirementTypes.Length);
-        GameObject newRequirement = requirementsContainer.RequirementTypes[rand];
-        newRequirement.SetActive(true);
+        Interactable newRequirement = requirementsContainer.RequirementTypes[rand];
+        newRequirement.gameObject.SetActive(true);
 
-        OnRequirementActivated?.Invoke();
+        OnRequirementActivated?.Invoke(newRequirement);
         //requirementTimer.Stop();
-
     }
 
 

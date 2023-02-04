@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4327821996391789132}
   - component: {fileID: 4327821996391789123}
   - component: {fileID: 4327821996391789122}
+  - component: {fileID: 1130440648}
   m_Layer: 0
   m_Name: Fertilizer
   m_TagString: Untagged
@@ -97,6 +98,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1130440648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327821996391789120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf2bc30e65b8d44ea54229156fb579d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &4327821996918073506
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,10 +124,10 @@ GameObject:
   - component: {fileID: 4327821996918073507}
   - component: {fileID: 4327821996918073512}
   - component: {fileID: 4327821996946705079}
-  - component: {fileID: 4327821996946705080}
   - component: {fileID: 4327821996946705081}
   - component: {fileID: 2947520078611573081}
   - component: {fileID: 4128868456825239045}
+  - component: {fileID: 94415628}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -179,6 +193,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4327821996946705081}
+        m_TargetAssemblyTypeName: Tree, Assembly-CSharp
+        m_MethodName: SetRequirementForTree
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   requirementsContainer: {fileID: 4327821996946705079}
   requirementTimer: {fileID: 4327821996918073512}
 --- !u!114 &4327821996918073512
@@ -226,9 +252,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementTypes:
-  - {fileID: 4327821997096430631}
-  - {fileID: 4327821996391789120}
---- !u!114 &4327821996946705080
+  - {fileID: 1354898673}
+  - {fileID: 1130440648}
+--- !u!114 &4327821996946705081
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,7 +263,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4327821996918073506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3de24c2657533de49a2bdb88e8eb1b85, type: 3}
+  m_Script: {fileID: 11500000, guid: 15fb8847d079d4e41bab55e1ce30f2e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnDelivery:
@@ -279,35 +305,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  requirementsContainer: {fileID: 4327821996946705079}
---- !u!114 &4327821996946705081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4327821996918073506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15fb8847d079d4e41bab55e1ce30f2e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionDetected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4327821996946705080}
-        m_TargetAssemblyTypeName: DeliveryValidator, Assembly-CSharp
-        m_MethodName: OnCollisionDetected
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  assignedPlayer: {fileID: 0}
 --- !u!114 &2947520078611573081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9921d2a24d194c445ab5a095fd5097c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TreeGrownUp:
+    m_PersistentCalls:
+      m_Calls: []
   treeLvls:
   - {fileID: 919132149155446097, guid: c9ef6e4b5c259b540aeb24c267ae17a2, type: 3}
   - {fileID: 919132149155446097, guid: d837b699cab56d54b8fbc7654a0002ae, type: 3}
@@ -356,6 +356,19 @@ MonoBehaviour:
   waittime: 10
   startOnAwake: 1
   oneShot: 0
+--- !u!114 &94415628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327821996918073506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf2bc30e65b8d44ea54229156fb579d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
 --- !u!1 &4327821997096430631
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +382,7 @@ GameObject:
   - component: {fileID: 4327821997096430626}
   - component: {fileID: 4327821997096430625}
   - component: {fileID: 4327821997096430636}
+  - component: {fileID: 1354898673}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -472,3 +486,16 @@ MonoBehaviour:
   waittime: 0
   startOnAwake: 0
   oneShot: 0
+--- !u!114 &1354898673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327821997096430631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf2bc30e65b8d44ea54229156fb579d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0

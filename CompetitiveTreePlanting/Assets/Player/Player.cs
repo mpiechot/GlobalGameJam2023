@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     public Interactable? CarriedObject => playerInteraction.CarriedObject;
 
-    private void Start()
+    public void Initialize()
     {
         playerId = Guid.NewGuid();
     }

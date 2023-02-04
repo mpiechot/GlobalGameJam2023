@@ -11,5 +11,6 @@ namespace Assets
     {
         WATER,
         FERTILIZER,
+        TREE
     }
 }
