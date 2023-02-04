@@ -11,6 +11,9 @@ public class Tree : MonoBehaviour
     [SerializeField, Tooltip("Reference to the GrowthTimer")]
     private Timer growthTimer;
 
+    [SerializeField]
+    private RequirementsBubble requirementsBubble;
+
     private Requirement requirement;
 
     public UnityEvent OnDelivery;
@@ -41,5 +44,6 @@ public class Tree : MonoBehaviour
         this.requirement = requirement;
         requirementTimer.Stop();
         growthTimer.Pause();
+        requirementsBubble.ChangeRequirement(requirement.Sprite);
     }
 }

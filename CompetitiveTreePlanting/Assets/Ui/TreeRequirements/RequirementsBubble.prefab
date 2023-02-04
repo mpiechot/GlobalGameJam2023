@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 3218236042593591638}
   - component: {fileID: 8086489548297029821}
   m_Layer: 5
-  m_Name: TreeRequirements
+  m_Name: RequirementsBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

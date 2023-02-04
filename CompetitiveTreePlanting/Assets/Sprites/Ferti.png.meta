@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bef5d6d6a1863874c8a7a085d1982a80
+guid: 73e242da02256e24782a7831edfbcc01
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,116 +115,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Gedankenblase_4
-      rect:
-        serializedVersion: 2
-        x: 660
-        y: 19
-        width: 450
-        height: 337
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c25f6f9731a313f4191ffd97234a74a4
-      internalID: 375736056
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gedankenblase_3
-      rect:
-        serializedVersion: 2
-        x: 458
-        y: 75
-        width: 97
-        height: 81
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 715c62c1bbda5f7449fdf53b3fd92209
-      internalID: 646680199
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gedankenblase_2
-      rect:
-        serializedVersion: 2
-        x: 258
-        y: 80
-        width: 59
-        height: 53
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b7e93681aba95c44a9904672faa9a42
-      internalID: -599351904
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gedankenblase_1
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 86
-        width: 43
-        height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a122c8f066f18c24690c6c5c840925e7
-      internalID: -1339837758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e74547c2dd02e304aa1615958843d3eb
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Gedankenblase_3: 646680199
-      Gedankenblase_13: -728638764
-      Gedankenblase_9: -2090787773
-      Gedankenblase_10: 1589225892
-      Gedankenblase_5: -341015311
-      Gedankenblase_1: -1339837758
-      Gedankenblase_2: -599351904
-      Gedankenblase_8: 925860371
-      Gedankenblase_4: 375736056
-      Gedankenblase_11: -1760887893
-      Gedankenblase_14: 816913159
-      Gedankenblase_6: 1283832017
-      Gedankenblase_7: 2086895578
-      Gedankenblase_12: 1935456832
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
