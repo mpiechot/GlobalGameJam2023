@@ -15,11 +15,16 @@ public class Fist : MonoBehaviour
             Debug.LogError("Needs to be Trigger");
     }
 
-    public void ExecuteHit()
+    public void ExecuteHit(float stunDuration)
     {
         for(int i = 0; i < targets.Count; i++)
         {
-            targets[i].AddForce(transform.forward * 100, ForceMode.Impulse);
+            targets[i].AddForce(transform.forward * 40, ForceMode.Impulse);
+            Player enemyPlayer = targets[i].GetComponent<Player>();
+            if (enemyPlayer)
+            {
+                enemyPlayer.Stun(stunDuration);
+            }
         }
     }
 

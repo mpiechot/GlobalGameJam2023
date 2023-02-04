@@ -5,10 +5,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.HID;
 
+[RequireComponent(typeof(Player))]
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private float HitStunDuration = 0.3f;
     [SerializeField] private float speed = 1;
     [SerializeField] private float dashForce = 1;
     [SerializeField] private float dashPushbackForce = 0.3f;
@@ -16,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashCooldown = 1;
     [SerializeField] private UnityEvent<Vector3> tryInteract = new UnityEvent<Vector3>();
 
-
+    private Player player;
     private Vector2 moveVector = Vector2.zero;
     private Vector2 direction = Vector2.zero;
     private GGJInputActions inputControls;
@@ -33,7 +35,13 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        player = GetComponent<Player>();
         rigidbody = GetComponent<Rigidbody>();
+        InitInputControls();
+    }
+
+    private void InitInputControls()
+    {
         inputControls = new GGJInputActions();
         inputControls.Player.Interact.performed += _ => Interact();
         inputControls.Player.Hit.performed += _ => TryHit();
@@ -42,18 +50,27 @@ public class PlayerMovement : MonoBehaviour
         inputControls.Player.Movement.canceled += ctx => moveVector = Vector2.zero;
     }
 
+    Boolean Dashing
+    {
+        get { return performDash != null; }
+    }
+
     private IEnumerator Dash()
     {
-        // Perform hit here!
-        dashPerformed = false;
 
-        currentDashCooldown = Time.time;
-        while (Time.time - currentDashCooldown < dashCooldown)
+        if (!player.Stunned)
         {
-            yield return null;
-        }
+            // Perform hit here!
+            dashPerformed = false;
 
-        performDash = null;
+            currentDashCooldown = Time.time;
+            while (Time.time - currentDashCooldown < dashCooldown)
+            {
+                yield return null;
+            }
+
+            performDash = null;
+        }
     }
     private void TryDash()
     {
@@ -77,17 +94,19 @@ public class PlayerMovement : MonoBehaviour
     {
         // Perform hit here!
         Debug.Log("Hit!");
-
-        BroadcastMessage("ExecuteHit");
-        animator.SetTrigger("Hit");
-
-        currentHitCooldown = Time.time;
-        while(Time.time - currentHitCooldown < attackCooldown)
+        if (!player.Stunned)
         {
-            yield return null;
-        }
+            BroadcastMessage("ExecuteHit", HitStunDuration);
+            animator.SetTrigger("Hit");
 
-        performHit = null;
+            currentHitCooldown = Time.time;
+            while (Time.time - currentHitCooldown < attackCooldown)
+            {
+                yield return null;
+            }
+
+            performHit = null;
+        }
     }
 
     private void Interact()
@@ -97,15 +116,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Math.Abs(moveVector.magnitude) > .1f)
+        if (!player.Stunned)
         {
-            rigidbody.AddForce(new Vector3(moveVector.x * speed, 0, moveVector.y * speed), ForceMode.Impulse);
-            direction = moveVector;
-        }
-        if(!dashPerformed) 
-        {
-            rigidbody.AddForce(new Vector3(direction.x * dashForce, 0, direction.y * dashForce), ForceMode.Impulse);
-            dashPerformed = true;
+            if (Math.Abs(moveVector.magnitude) > .1f)
+            {
+                rigidbody.AddForce(new Vector3(moveVector.x * speed, 0, moveVector.y * speed), ForceMode.Impulse);
+                direction = moveVector;
+            }
+            if (!dashPerformed)
+            {
+                rigidbody.AddForce(new Vector3(direction.x * dashForce, 0, direction.y * dashForce), ForceMode.Impulse);
+                dashPerformed = true;
+            }
         }
     }
 
@@ -133,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
 
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && Dashing)
         {
 
             Rigidbody other = collision.gameObject.GetComponent<Rigidbody>();

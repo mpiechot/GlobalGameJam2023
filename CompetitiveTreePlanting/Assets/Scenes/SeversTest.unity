@@ -1070,10 +1070,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8448632490337488931, guid: a6d172b751a784f4388273aa36336947, type: 3}
-      propertyPath: angleSpeed
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 8479849845938575696, guid: a6d172b751a784f4388273aa36336947, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1122,10 +1118,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: NonControlledPlayer
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8479849845938575700, guid: a6d172b751a784f4388273aa36336947, type: 3}
-    - {fileID: 8448632490337488931, guid: a6d172b751a784f4388273aa36336947, type: 3}
-    - {fileID: 2547467966966336200, guid: a6d172b751a784f4388273aa36336947, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6d172b751a784f4388273aa36336947, type: 3}
 --- !u!1001 &41070046028163124
 PrefabInstance:
@@ -1181,26 +1174,6 @@ PrefabInstance:
     - target: {fileID: 41070045975728277, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 41070045975728278, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
-      propertyPath: m_Drag
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 41070045975728278, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
-      propertyPath: m_Constraints
-      value: 116
-      objectReference: {fileID: 0}
-    - target: {fileID: 41070045975728279, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
-      propertyPath: dashForce
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 41070045975728279, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
-      propertyPath: dashCooldown
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 41070045975728279, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
-      propertyPath: dashPushbackForce
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
