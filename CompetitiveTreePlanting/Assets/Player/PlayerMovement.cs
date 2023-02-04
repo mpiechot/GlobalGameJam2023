@@ -8,9 +8,9 @@ using UnityEngine.InputSystem.HID;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] Rigidbody rigidBody;
     [SerializeField] float speed = 1;
     [SerializeField] float dashForce = 1;
+    [SerializeField] float dashPushbackForce = 0.3f;
     [SerializeField] float attackCooldown = 1;
     [SerializeField] float dashCooldown = 1;
     [SerializeField] UnityEvent<Vector3> tryInteract = new UnityEvent<Vector3>();
@@ -23,10 +23,15 @@ public class PlayerMovement : MonoBehaviour
     private float currentHitCooldown = 0f;
     private float currentDashCooldown;
     private bool dashPerformed = true;
+    private new Rigidbody rigidbody;
+
+    Vector3 dashFrom;
+    Vector3 dashTo;
 
     // Start is called before the first frame update
     private void Awake()
     {
+        rigidbody = GetComponent<Rigidbody>();
         inputControls = new GGJInputActions();
         inputControls.Player.Interact.performed += _ => Interact();
         inputControls.Player.Hit.performed += _ => TryHit();
@@ -91,12 +96,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Math.Abs(moveVector.magnitude) > .1f)
         {
-            rigidBody.AddForce(new Vector3(moveVector.x * speed, 0, moveVector.y * speed), ForceMode.Impulse);
+            rigidbody.AddForce(new Vector3(moveVector.x * speed, 0, moveVector.y * speed), ForceMode.Impulse);
             direction = moveVector;
         }
         if(!dashPerformed) 
         {
-            rigidBody.AddForce(new Vector3(direction.x * dashForce, 0, direction.y * dashForce), ForceMode.Impulse);
+            rigidbody.AddForce(new Vector3(direction.x * dashForce, 0, direction.y * dashForce), ForceMode.Impulse);
             dashPerformed = true;
         }
     }
@@ -109,5 +114,38 @@ public class PlayerMovement : MonoBehaviour
     private void OnDisable()
     {
         inputControls.Disable();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawLine(dashFrom, dashTo);
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+
+        if(collision.gameObject.tag == "Player")
+        {
+
+            Rigidbody other = collision.gameObject.GetComponent<Rigidbody>();
+            if (other)
+            {
+
+                Vector3 contact = collision.GetContact(0).point;
+                contact.y = 0;
+                Vector3 playerPosition = transform.position;
+                playerPosition.y = 0;
+
+                Vector3 direction = contact - playerPosition;
+
+                float dirMultiplier =  (float)(Math.Cos(Vector3.Angle(direction.normalized, rigidbody.velocity.normalized) / 180 * Math.PI));
+                Vector3 propagatedForce = direction * dashPushbackForce * Math.Abs(dirMultiplier) * rigidbody.velocity.magnitude;      
+                other.AddForce(Vector3.ClampMagnitude(propagatedForce, dashPushbackForce * 10), ForceMode.Impulse);
+
+                dashFrom = contact;
+                dashTo = contact + propagatedForce;
+            }
+        }
     }
 }
