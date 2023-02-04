@@ -71,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
         // Perform hit here!
         Debug.Log("Hit!");
 
+        BroadcastMessage("ExecuteHit");
+
         currentHitCooldown = Time.time;
         while(Time.time - currentHitCooldown < attackCooldown)
         {
