@@ -1,3 +1,5 @@
+using Fusion;
+using MultiplayerDev;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +8,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem.HID;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private float speed = 1;
@@ -19,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveVector = Vector2.zero;
     private Vector2 direction = Vector2.zero;
-    private GGJInputActions inputControls;
+    //private GGJInputActions inputControls;
     private Coroutine performHit;
     private Coroutine performDash;
     private float currentHitCooldown = 0f;
@@ -34,12 +36,20 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
-        inputControls = new GGJInputActions();
-        inputControls.Player.Interact.performed += _ => Interact();
-        inputControls.Player.Hit.performed += _ => TryHit();
-        inputControls.Player.Dash.performed += _ => TryDash();
-        inputControls.Player.Movement.performed += ctx => moveVector = ctx.ReadValue<Vector2>();
-        inputControls.Player.Movement.canceled += ctx => moveVector = Vector2.zero;
+        //inputControls = new GGJInputActions();
+        //inputControls.Player.Interact.performed += _ => Interact();
+        //inputControls.Player.Hit.performed += _ => TryHit();
+        //inputControls.Player.Dash.performed += _ => TryDash();
+        //inputControls.Player.Movement.performed += ctx => moveVector = ctx.ReadValue<Vector2>();
+        //inputControls.Player.Movement.canceled += ctx => moveVector = Vector2.zero;
+    }
+
+    public override void FixedUpdateNetwork()
+    {
+        if (GetInput(out NetworkInputData data))
+        {
+            moveVector = data.direction.normalized;
+        }
     }
 
     private IEnumerator Dash()
@@ -116,12 +126,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        inputControls.Enable();
+        //inputControls.Enable();
     }
 
     private void OnDisable()
     {
-        inputControls.Disable();
+        //inputControls.Disable();
     }
 
     private void OnDrawGizmos()

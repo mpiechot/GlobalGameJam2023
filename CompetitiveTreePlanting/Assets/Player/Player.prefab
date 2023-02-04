@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 6225662310370509579}
   - component: {fileID: 41070045975728278}
   - component: {fileID: 2526590491783129485}
+  - component: {fileID: -5332417903899381882}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -262,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf808637214495439d4adae98fffaec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   animator: {fileID: 7934878492805390769}
   speed: 5
   dashForce: 100
@@ -295,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8423863cd51cd4bb9f495b073d827c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   avatar: {fileID: 2146245837}
   angleSpeed: 570
 --- !u!114 &6225662310370509579
@@ -310,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInteraction: {fileID: 253386026}
+  deathThreshhold: -1
 --- !u!54 &41070045975728278
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -340,6 +344,31 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &-5332417903899381882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41070045975728277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2305
+  NetworkGuid:
+    RawGuidValue: b37a86f5f7be674439c64b6a6d61f129
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 41070045975728279}
+  - {fileID: 855169504}
+  SimulationBehaviours: []
 --- !u!1 &3515785600290124040
 GameObject:
   m_ObjectHideFlags: 0
