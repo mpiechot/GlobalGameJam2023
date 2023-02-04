@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ba38c9530c66d4e96cb29a0bfc5c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   animator: {fileID: 0}
   playerInteraction: {fileID: 253386026}
   deathThreshhold: -1
@@ -368,6 +369,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 41070045975728279}
   - {fileID: 855169504}
+  - {fileID: 6225662310370509579}
   SimulationBehaviours: []
 --- !u!1 &3515785600290124040
 GameObject:
