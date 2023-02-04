@@ -1,7 +1,8 @@
+using Fusion;
 using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] private PlayerInteraction playerInteraction;
@@ -26,7 +27,13 @@ public class Player : MonoBehaviour
         playerInteraction.OnDrop -= Drop;
     }
 
-
+    private void Start()
+    {
+        if(!Object.HasInputAuthority)
+        {
+            GetComponentInChildren<Camera>().gameObject.SetActive(false);
+        }
+    }
 
     public void Initialize()
     {
