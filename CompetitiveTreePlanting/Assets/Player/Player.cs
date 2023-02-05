@@ -9,6 +9,10 @@ public class Player : NetworkBehaviour
     [SerializeField] private PlayerInteraction playerInteraction;
     [SerializeField] private float deathThreshhold;
 
+    [SerializeField] Color color;
+
+    public Color Color { get { return color; } }
+
     private Guid playerId;
     private Tree playerTree;
 
@@ -49,6 +53,7 @@ public class Player : NetworkBehaviour
     public void SetTree(Tree tree)
     {
         playerTree = tree;
+        tree.SetOwner(this);
     }
 
     public void Respawn()
