@@ -1,6 +1,7 @@
 #nullable enable
 
 using Assets;
+using Fusion;
 using System;
 using UnityEngine;
 
@@ -10,7 +11,6 @@ public class PlayerInteraction : MonoBehaviour
     public delegate void Interaction();
     public event Interaction? OnPickUp;
     public event Interaction? OnDrop;
-
 
     [SerializeField] CarryableObjects? carryableObjects;
     [SerializeField] Transform? carryObjectLocation;
@@ -49,6 +49,24 @@ public class PlayerInteraction : MonoBehaviour
         OnPickUp.Invoke();
     }
 
+    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    private void RPC_PickupWater()
+    {
+        PickUp(carryableObjects.waterPotPrefab);
+    }
+
+    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    private void RPC_PickupFertilizer()
+    {
+        PickUp(carryableObjects.fertilizerPrefab);
+    }
+
+    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    private void RPC_Drop()
+    {
+        Drop();
+    }
+
     private void CarryObject(InteractableType type, GameObject interactedObject)
     {
         if (carryableObjects == null)
@@ -59,19 +77,19 @@ public class PlayerInteraction : MonoBehaviour
         if (carriedObject != null && type != InteractableType.TREE)
         {
             // We already carry something and we don't interact with the tree. We need to destroy it to carry something new.
-            Drop();
+            RPC_Drop();
         }
 
         switch (type)
         {
             case InteractableType.WATER:
                 {
-                    PickUp(carryableObjects.waterPotPrefab);
+                    RPC_PickupWater();
                       break;
                 }
             case InteractableType.FERTILIZER:
                 {
-                    PickUp(carryableObjects.fertilizerPrefab);
+                    RPC_PickupFertilizer();
                     break;
                 }
             case InteractableType.TREE:
@@ -89,7 +107,7 @@ public class PlayerInteraction : MonoBehaviour
 
                     if (carriedObject != null && tree.FeedTree(carriedObject.Type))
                     {
-                        Drop();
+                        RPC_Drop();
                     }
 
                     break;
