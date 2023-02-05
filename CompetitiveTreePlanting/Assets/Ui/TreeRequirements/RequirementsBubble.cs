@@ -33,8 +33,6 @@ public class RequirementsBubble : MonoBehaviour
     {
         requirementsImage.sprite = requirementSprites[requirement];
         requirementsBubbleAnimator.SetTrigger("Show");
-        image.sprite = requirement;
-        shadowImage.sprite = requirement;
         Open();
     }
 }
