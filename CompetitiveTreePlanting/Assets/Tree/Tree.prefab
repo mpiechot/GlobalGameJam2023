@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requirementsImage: {fileID: 1886813538776355334}
   requirementsBubbleAnimator: {fileID: 5704738496517601717}
+  requirementSprites: []
 --- !u!95 &5704738496517601717
 Animator:
   serializedVersion: 5
@@ -10087,9 +10088,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.8900569
-  m_Height: 1.9027168
+  m_Height: 4.5564413
   m_Direction: 1
-  m_Center: {x: -0.006568134, y: -0.120747626, z: 0}
+  m_Center: {x: -0.006568134, y: 1.2061148, z: 0}
 --- !u!114 &4327821996918073507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10192,6 +10193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fb8847d079d4e41bab55e1ce30f2e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   requirementTimer: {fileID: 4327821996918073512}
   growthTimer: {fileID: 4128868456825239045}
   requirementsBubble: {fileID: 502805520348661735}
@@ -10234,6 +10236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9921d2a24d194c445ab5a095fd5097c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   TreeGrownUp:
     m_PersistentCalls:
       m_Calls: []

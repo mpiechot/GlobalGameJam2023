@@ -14,6 +14,7 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
     [SerializeField] private NetworkPrefabRef _playerPrefab;
     [SerializeField] private NetworkPrefabRef _treePrefab;
     [SerializeField] private Vector3 spawnAreaSize;
+    [SerializeField] private Transform[] spawnPositions;
 
     private Player playerReference;
     private Tree treeReference;
@@ -43,9 +44,10 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
     {
         if (runner.IsServer)
         {
+            int spawnIndex = (player.RawEncoded % runner.Config.Simulation.DefaultPlayers);
 
             //Vector3 spawnPosition = CreateSpawnPosition();
-            Vector3 spawnPosition = new Vector3((player.RawEncoded % runner.Config.Simulation.DefaultPlayers) * 3, 2, 0);
+            Vector3 spawnPosition = new Vector3(spawnIndex * 3, 2, 0);
             NetworkObject networkPlayerObject = runner.Spawn(_playerPrefab, spawnPosition, Quaternion.identity, player);
             playerReference = networkPlayerObject.GetComponent<Player>();
 
@@ -54,7 +56,7 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
             spawnAreaCenter = playerReference.transform.position;
 
             //Create a tree for the player at a random position --> Must be converted to Fusion Callback on player
-            NetworkObject networkTreeObject = runner.Spawn(_treePrefab, CreateSpawnPosition(), Quaternion.identity, player);
+            NetworkObject networkTreeObject = runner.Spawn(_treePrefab, spawnPositions[spawnIndex].position, Quaternion.identity, player);
             treeReference = networkTreeObject.GetComponent<Tree>();
 
             treeReference.Initialize(playerReference.PlayerId);

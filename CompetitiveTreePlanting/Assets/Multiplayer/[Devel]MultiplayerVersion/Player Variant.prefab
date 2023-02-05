@@ -95,6 +95,18 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 4106848717602077643, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106848717602077643, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106848717602077643, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6225662310370509579, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
       propertyPath: animator
       value: 
