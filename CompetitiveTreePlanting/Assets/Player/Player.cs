@@ -1,7 +1,8 @@
+using Fusion;
 using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
     [SerializeField] GameObject stunIndicator;
     [SerializeField] Animator animator;
@@ -34,7 +35,14 @@ public class Player : MonoBehaviour
         playerInteraction.OnDrop -= Drop;
     }
 
-
+    private void Start()
+    {
+        if(!Object.HasInputAuthority)
+        {
+            GetComponentInChildren<Camera>().gameObject.SetActive(false);
+        }
+        stunIndicator.SetActive(false);
+    }
 
 
     public void Initialize()
@@ -61,11 +69,6 @@ public class Player : MonoBehaviour
     private void PickUp()
     {
         animator.SetBool("Holding", true);
-    }
-
-    public void Start()
-    {
-        stunIndicator.SetActive(false);
     }
 
     public void Update()

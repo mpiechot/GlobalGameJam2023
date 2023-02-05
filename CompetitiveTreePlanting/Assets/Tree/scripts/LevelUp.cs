@@ -1,11 +1,13 @@
+using Fusion;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LevelUp : MonoBehaviour
+public class LevelUp : NetworkBehaviour
 {
     public UnityEvent<int> TreeGrownUp;
+    public UnityEvent<int> TreeLevelUp;
 
     private int level = 0;
     private GameObject currentTree = null;
@@ -22,7 +24,7 @@ public class LevelUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlaceTree();
+        RPC_PlaceTree(level);
 
         requirementActivator.OnRequirementActivated.AddListener(PauseTreeAnimation);
         tree.OnDelivery.AddListener(PlayTreeAnimation);
@@ -33,24 +35,24 @@ public class LevelUp : MonoBehaviour
         if (level < treeLvls.Length - 1)
         {
             level++;
+            TreeLevelUp?.Invoke(level);
         }
         else
         {
             TreeGrownUp?.Invoke(level);
         }
-        PlaceTree();
+
+        RPC_PlaceTree(level);
     }
 
-    private void PlaceTree()
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    private void RPC_PlaceTree(int received_level, RpcInfo info = default)
     {
         if(currentTree != null) Destroy(currentTree);
-        GameObject newTree = Instantiate(treeLvls[level]);
+        GameObject newTree = Instantiate(treeLvls[received_level]);
         newTree.transform.parent = transform;
         newTree.transform.localPosition = Vector3.zero;
         currentTree = newTree;
-
-        
-
     }
 
     private void PauseTreeAnimation(Requirement requirement)

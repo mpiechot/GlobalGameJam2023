@@ -65,7 +65,4 @@ crashlytics-build.properties
 
 # ignore UserSettings folder
 **/UserSettings/
-
-# temporarily exclude photon and Multiplayer
-**/[Pp]hoton
-**/[Mm]ultiplayer
+/[Tt]est[Bb]uilds/

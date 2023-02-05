@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 2872629423581342960}
   - component: {fileID: 3218236042593591638}
   - component: {fileID: 8086489548297029821}
+  - component: {fileID: 3712132858767527299}
   m_Layer: 5
   m_Name: RequirementsBubble
   m_TagString: Untagged
@@ -275,6 +276,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementsImage: {fileID: 2872629423581342960}
+  requirementsBubbleAnimator: {fileID: 0}
+  requirementSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  image: {fileID: 0}
+  shadowImage: {fileID: 0}
 --- !u!114 &2872629423581342960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,3 +352,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!95 &3712132858767527299
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947543022863400780}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
