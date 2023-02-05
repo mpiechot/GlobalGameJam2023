@@ -1,3 +1,5 @@
+using Fusion;
+using MultiplayerDev;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using UnityEngine.InputSystem.HID;
 
 [RequireComponent(typeof(Player))]
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private float HitStunDuration = 0.3f;
@@ -18,10 +20,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashCooldown = 1;
     [SerializeField] private UnityEvent<Vector3> tryInteract = new UnityEvent<Vector3>();
 
+    [Networked]
+    private Vector2 animatedVector { get; set; }
+
     private Player player;
     private Vector2 moveVector = Vector2.zero;
     private Vector2 direction = Vector2.zero;
-    private GGJInputActions inputControls;
+    //private GGJInputActions inputControls;
     private Coroutine performHit;
     private Coroutine performDash;
     private float currentHitCooldown = 0f;
@@ -37,17 +42,33 @@ public class PlayerMovement : MonoBehaviour
     {
         player = GetComponent<Player>();
         rigidbody = GetComponent<Rigidbody>();
-        InitInputControls();
+        //inputControls = new GGJInputActions();
+        //inputControls.Player.Interact.performed += _ => Interact();
+        //inputControls.Player.Hit.performed += _ => TryHit();
+        //inputControls.Player.Dash.performed += _ => TryDash();
+        //inputControls.Player.Movement.performed += ctx => moveVector = ctx.ReadValue<Vector2>();
+        //inputControls.Player.Movement.canceled += ctx => moveVector = Vector2.zero;
     }
 
-    private void InitInputControls()
+    public override void FixedUpdateNetwork()
     {
-        inputControls = new GGJInputActions();
-        inputControls.Player.Interact.performed += _ => Interact();
-        inputControls.Player.Hit.performed += _ => TryHit();
-        inputControls.Player.Dash.performed += _ => TryDash();
-        inputControls.Player.Movement.performed += ctx => moveVector = ctx.ReadValue<Vector2>();
-        inputControls.Player.Movement.canceled += ctx => moveVector = Vector2.zero;
+        if (GetInput(out NetworkInputData data))
+        {
+            if((data.buttons & NetworkInputData.INTERACT) != 0)
+            {
+                Interact();
+            }
+            if ((data.buttons & NetworkInputData.HIT) != 0)
+            {
+                TryHit();
+            }
+            if ((data.buttons & NetworkInputData.DASH) != 0)
+            {
+                TryDash();
+            }
+            moveVector = data.direction.normalized;
+            animatedVector = moveVector;
+        }
     }
 
     Boolean Dashing
@@ -133,17 +154,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
-        animator.SetFloat("Speed", rigidbody.velocity.magnitude/8);
+        animator.SetFloat("Speed", animatedVector.magnitude);
     }
 
     private void OnEnable()
     {
-        inputControls.Enable();
+        //inputControls.Enable();
     }
 
     private void OnDisable()
     {
-        inputControls.Disable();
+        //inputControls.Disable();
     }
 
     private void OnDrawGizmos()
