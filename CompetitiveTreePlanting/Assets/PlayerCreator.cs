@@ -45,7 +45,7 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
         {
 
             //Vector3 spawnPosition = CreateSpawnPosition();
-            Vector3 spawnPosition = new Vector3((player.RawEncoded % runner.Config.Simulation.DefaultPlayers) * 3, 0, 0);
+            Vector3 spawnPosition = new Vector3((player.RawEncoded % runner.Config.Simulation.DefaultPlayers) * 3, 2, 0);
             NetworkObject networkPlayerObject = runner.Spawn(_playerPrefab, spawnPosition, Quaternion.identity, player);
             playerReference = networkPlayerObject.GetComponent<Player>();
 
