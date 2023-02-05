@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] MeshRenderer stunIndicator;
+    [SerializeField] GameObject stunIndicator;
     [SerializeField] Animator animator;
     [SerializeField] private PlayerInteraction playerInteraction;
     [SerializeField] private float deathThreshhold;
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        stunIndicator.enabled = false;
+        stunIndicator.SetActive(false);
     }
 
     public void Update()
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
             stunStart = Time.time;
             stunDuration = duration;
             animator.SetBool("Stunned", true);
-            stunIndicator.enabled = true;
+            stunIndicator.SetActive(true);
         }
     }
 
@@ -110,7 +110,7 @@ public class Player : MonoBehaviour
         Debug.Log("Disable Stun");
         animator.SetBool("Stunned", false);
         Stunned = false;
-        stunIndicator.enabled = false;
+        stunIndicator.SetActive(false);
     }
                 
 }
