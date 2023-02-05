@@ -49,19 +49,19 @@ public class PlayerInteraction : MonoBehaviour
         OnPickUp.Invoke();
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     private void RPC_PickupWater()
     {
         PickUp(carryableObjects.waterPotPrefab);
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     private void RPC_PickupFertilizer()
     {
         PickUp(carryableObjects.fertilizerPrefab);
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     private void RPC_Drop()
     {
         Drop();

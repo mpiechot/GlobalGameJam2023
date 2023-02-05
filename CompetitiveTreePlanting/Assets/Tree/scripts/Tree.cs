@@ -30,7 +30,7 @@ public class Tree : NetworkBehaviour
 
     public bool FeedTree(InteractableType feedType)
     {
-        if(feedType == requirement.Type)
+        if(requirement != null && feedType == requirement.Type)
         {
             OnDelivery?.Invoke();
             requirementTimer.Run();
