@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 502805520348661735, guid: c3b7d07c632e29e4db57b32e8ef608fa, type: 3}
+      propertyPath: requirementSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 502805520348661735, guid: c3b7d07c632e29e4db57b32e8ef608fa, type: 3}
+      propertyPath: requirementSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: ffca99d8b612ee0498f77bd65ee1744f, type: 3}
+    - target: {fileID: 502805520348661735, guid: c3b7d07c632e29e4db57b32e8ef608fa, type: 3}
+      propertyPath: requirementSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 73e242da02256e24782a7831edfbcc01, type: 3}
     - target: {fileID: 4327821996918073506, guid: c3b7d07c632e29e4db57b32e8ef608fa, type: 3}
       propertyPath: m_Name
       value: Tree Variant
@@ -95,6 +107,7 @@ MonoBehaviour:
     RawGuidValue: 95f7a493457956844bd5c4aaf19dc8d5
   NestedObjects: []
   NetworkedBehaviours:
+  - {fileID: 1378223517584540192}
   - {fileID: 560799534371791296}
   - {fileID: 1152774861}
   SimulationBehaviours: []
@@ -126,3 +139,14 @@ MonoBehaviour:
     RotTeleportRadians: 1.5
   UseLegacySharedModeInterpolation: 0
   TargetInterpolationDelay: 0.03
+--- !u!114 &1378223517584540192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4327821996946705081, guid: c3b7d07c632e29e4db57b32e8ef608fa, type: 3}
+  m_PrefabInstance: {fileID: 3400197728168708249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378223517555384379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fb8847d079d4e41bab55e1ce30f2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

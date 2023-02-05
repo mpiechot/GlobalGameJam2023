@@ -9,18 +9,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
 {
+    [SerializeField] private bool DrawSpawnArea = false;
     [SerializeField] private NetworkPrefabRef _playerPrefab;
     [SerializeField] private NetworkPrefabRef _treePrefab;
+    [SerializeField] private Vector3 spawnAreaSize;
 
     private Player playerReference;
     private Tree treeReference;
-
     private Vector3 spawnAreaCenter;
-    [SerializeField] private Vector3 spawnAreaSize;
-    [SerializeField] private bool DrawSpawnArea = false;
 
     private Dictionary<PlayerRef, NetworkObject[]> _spawnedCharacters = new Dictionary<PlayerRef, NetworkObject[]>();
-
 
     private Vector3 CreateSpawnPosition()
     {
@@ -36,7 +34,6 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
         {
             return;
         }
-        spawnAreaCenter = playerReference.transform.position;
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(transform.localPosition + spawnAreaCenter, spawnAreaSize);
     }
@@ -46,7 +43,8 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
         if (runner.IsServer)
         {
 
-            Vector3 spawnPosition = new Vector3((player.RawEncoded % runner.Config.Simulation.DefaultPlayers) * 3, 1, 0);
+            //Vector3 spawnPosition = CreateSpawnPosition();
+            Vector3 spawnPosition = new Vector3((player.RawEncoded % runner.Config.Simulation.DefaultPlayers) * 3, 0, 0);
             NetworkObject networkPlayerObject = runner.Spawn(_playerPrefab, spawnPosition, Quaternion.identity, player);
             playerReference = networkPlayerObject.GetComponent<Player>();
 

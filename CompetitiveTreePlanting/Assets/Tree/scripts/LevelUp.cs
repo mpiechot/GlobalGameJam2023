@@ -31,13 +31,10 @@ public class LevelUp : NetworkBehaviour
             TreeGrownUp?.Invoke();
         }
 
-        if (Object.HasInputAuthority)
-        {
-            RPC_PlaceTree(level);
-        }
+        RPC_PlaceTree(level);
     }
 
-    [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     private void RPC_PlaceTree(int received_level, RpcInfo info = default)
     {
         if(currentTree != null) Destroy(currentTree);

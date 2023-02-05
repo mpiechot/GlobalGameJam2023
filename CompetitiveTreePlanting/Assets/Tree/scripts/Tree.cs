@@ -1,9 +1,10 @@
 using Assets;
+using Fusion;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Tree : MonoBehaviour
+public class Tree : NetworkBehaviour
 {
     [SerializeField, Tooltip("Reference to the RequirementTimer")]
     private RandomTimer requirementTimer;
@@ -40,10 +41,21 @@ public class Tree : MonoBehaviour
     }
 
     public void SetRequirementForTree(Requirement requirement) 
-    { 
-        this.requirement = requirement;
+    {
+            this.requirement = requirement;
+            switch (requirement.Type)
+            {
+                case InteractableType.WATER: RPC_SetRequirementForTree(0); break;
+                case InteractableType.FERTILIZER: RPC_SetRequirementForTree(1); break;
+                default: break;
+            }         
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void RPC_SetRequirementForTree(int requirement, RpcInfo info = default)
+    {
         requirementTimer.Stop();
         growthTimer.Pause();
-        requirementsBubble.ChangeRequirement(requirement.Sprite);
+        requirementsBubble.ChangeRequirement(requirement);
     }
 }

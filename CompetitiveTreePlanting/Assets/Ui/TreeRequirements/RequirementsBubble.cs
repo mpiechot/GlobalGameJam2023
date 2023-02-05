@@ -1,6 +1,3 @@
-using Assets;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,10 +5,11 @@ public class RequirementsBubble : MonoBehaviour
 {
     [SerializeField] private Image requirementsImage;
     [SerializeField] private Animator requirementsBubbleAnimator;
+    [SerializeField] private Sprite[] requirementSprites;
 
-    public void ChangeRequirement(Sprite requirement)
+    public void ChangeRequirement(int requirement)
     {
-        requirementsImage.sprite = requirement;
+        requirementsImage.sprite = requirementSprites[requirement];
         requirementsBubbleAnimator.SetTrigger("Show");
     }
 }
