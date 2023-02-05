@@ -13,10 +13,19 @@ public class LevelUp : MonoBehaviour
     [SerializeField, Tooltip("Tree-State-FBX files, please order from low to tall.")]
     private GameObject[] treeLvls;
 
+    [SerializeField, Tooltip("Ref. to the requirementActivator.")]
+    private RequirementActivator requirementActivator;
+
+    [SerializeField, Tooltip("Ref. to the tree component.")]
+    private Tree tree;
+
     // Start is called before the first frame update
     void Start()
     {
         PlaceTree();
+
+        requirementActivator.OnRequirementActivated.AddListener(PauseTreeAnimation);
+        tree.OnDelivery.AddListener(PlayTreeAnimation);
     }
 
     public void OnLevelUp()
@@ -39,6 +48,19 @@ public class LevelUp : MonoBehaviour
         newTree.transform.parent = transform;
         newTree.transform.localPosition = Vector3.zero;
         currentTree = newTree;
+
+        
+
+    }
+
+    private void PauseTreeAnimation(Requirement requirement)
+    {
+        currentTree.GetComponent<Animation>().Stop();
+    }
+
+    private void PlayTreeAnimation()
+    {
+        currentTree.GetComponent<Animation>().Play();
     }
 
 }

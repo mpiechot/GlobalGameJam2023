@@ -190,7 +190,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5214,7 +5214,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -10051,7 +10051,7 @@ GameObject:
   - component: {fileID: 2947520078611573081}
   - component: {fileID: 4128868456825239045}
   - component: {fileID: 94415628}
-  - component: {fileID: 4326372052305764291}
+  - component: {fileID: 164410913}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -10105,10 +10105,10 @@ MonoBehaviour:
   OnRequirementActivated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4327821996946705081}
-        m_TargetAssemblyTypeName: Tree, Assembly-CSharp
-        m_MethodName: SetRequirementForTree
-        m_Mode: 0
+      - m_Target: {fileID: 4128868456825239045}
+        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10117,10 +10117,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4326372052305764291}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 4327821996946705081}
+        m_TargetAssemblyTypeName: Tree, Assembly-CSharp
+        m_MethodName: SetRequirementForTree
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10210,10 +10210,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4326372052305764291}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 4128868456825239045}
+        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+        m_MethodName: Unpause
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10238,11 +10238,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   treeLvls:
-  - {fileID: 919132149155446097, guid: c9ef6e4b5c259b540aeb24c267ae17a2, type: 3}
-  - {fileID: 919132149155446097, guid: d837b699cab56d54b8fbc7654a0002ae, type: 3}
-  - {fileID: 919132149155446097, guid: dc997a11eaa93a8418b208ca7a6b289f, type: 3}
-  - {fileID: 919132149155446097, guid: 3148e91422bf78d4d98672335b25c68f, type: 3}
-  - {fileID: 919132149155446097, guid: 7dcca7d1e5af008429eab334b863fede, type: 3}
+  - {fileID: 2465934584987279963, guid: 4aa45c54cdb4d8643906b974fc9bb2b3, type: 3}
+  - {fileID: 3654170623686855960, guid: 1b26ac272a64aaa41ae79d26cec4b408, type: 3}
+  - {fileID: 3352147715989052018, guid: 9fe9f6850ef474e48a1e092d9c229dd9, type: 3}
+  - {fileID: 485274125980827549, guid: 8464c8235502da944829ec8dd5258290, type: 3}
+  - {fileID: 2667018634701893503, guid: 5a1adf44fec46e84a85f06dd954417ac, type: 3}
+  requirementActivator: {fileID: 4327821996918073507}
+  tree: {fileID: 4327821996946705081}
 --- !u!114 &4128868456825239045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10298,7 +10300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
---- !u!111 &4326372052305764291
+--- !u!111 &164410913
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10364,7 +10366,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
