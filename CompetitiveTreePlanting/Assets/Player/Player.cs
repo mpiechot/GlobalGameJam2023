@@ -37,6 +37,7 @@ public class Player : NetworkBehaviour
         {
             GetComponentInChildren<Camera>().gameObject.SetActive(false);
         }
+        stunIndicator.SetActive(false);
     }
 
 
@@ -63,11 +64,6 @@ public class Player : NetworkBehaviour
     private void PickUp()
     {
         animator.SetBool("Holding", true);
-    }
-
-    public void Start()
-    {
-        stunIndicator.SetActive(false);
     }
 
     public void Update()

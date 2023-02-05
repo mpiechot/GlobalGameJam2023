@@ -142,6 +142,33 @@ MonoBehaviour:
     RotTeleportRadians: 1.5
   UseLegacySharedModeInterpolation: 0
   TargetInterpolationDelay: 0.03
+--- !u!114 &568574785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8006255339452725548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2305
+  NetworkGuid:
+    RawGuidValue: 260a8a8deee6d7848a3d6a9e2ecd2e5e
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 8006255339452725550}
+  - {fileID: 8037243301085409369}
+  - {fileID: 4174828952524794546}
+  - {fileID: 501981089}
+  SimulationBehaviours: []
 --- !u!114 &8006255339452725550 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 41070045975728279, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
