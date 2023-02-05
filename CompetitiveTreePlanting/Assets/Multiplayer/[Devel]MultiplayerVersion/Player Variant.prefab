@@ -87,6 +87,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 41070045975728278, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 41070045975728278, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 6225662310370509579, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
       propertyPath: animator
       value: 
@@ -114,6 +122,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 41070045975728277, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
   m_PrefabInstance: {fileID: 8037243300243941817}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5401969744092798635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8006255339452725548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8d0fd2d54f3e84fb943a0d7cc2b934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lateralDrag: 1
+  verticalDrag: 0
 --- !u!114 &501981089
 MonoBehaviour:
   m_ObjectHideFlags: 0
