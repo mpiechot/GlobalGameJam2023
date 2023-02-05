@@ -15,10 +15,12 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
     [SerializeField] private NetworkPrefabRef _treePrefab;
     [SerializeField] private Vector3 spawnAreaSize;
     [SerializeField] private Transform[] spawnPositions;
+    [SerializeField] private MusicManager musicManager;
 
     private Player playerReference;
     private Tree treeReference;
     private Vector3 spawnAreaCenter;
+    private int maxLevel = 0;
 
     private Dictionary<PlayerRef, NetworkObject[]> _spawnedCharacters = new Dictionary<PlayerRef, NetworkObject[]>();
 
@@ -58,11 +60,22 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
             //Create a tree for the player at a random position --> Must be converted to Fusion Callback on player
             NetworkObject networkTreeObject = runner.Spawn(_treePrefab, spawnPositions[spawnIndex].position, Quaternion.identity, player);
             treeReference = networkTreeObject.GetComponent<Tree>();
+            treeReference.GetComponent<LevelUp>().TreeLevelUp.AddListener(TreeLeveledUp);
 
             treeReference.Initialize(playerReference.PlayerId);
             playerReference.SetTree(treeReference);
 
             _spawnedCharacters.Add(player, new NetworkObject[] { networkPlayerObject, networkTreeObject });
+        }
+    }
+
+    
+    private void TreeLeveledUp(int level)
+    {
+        if(maxLevel < level)
+        {
+            maxLevel = level;
+            musicManager.IncreaseTension(maxLevel);
         }
     }
 
