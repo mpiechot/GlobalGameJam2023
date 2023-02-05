@@ -17,7 +17,7 @@ public class RequirementsContainer : MonoBehaviour
 
     void Start()
     {
-        DeactivateRequirements();
+        //DeactivateRequirements();
     }
 
     public void DeactivateRequirements()
