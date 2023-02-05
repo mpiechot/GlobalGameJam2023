@@ -7,30 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5332417903899381882, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
-      propertyPath: Flags
-      value: 2305
-      objectReference: {fileID: 0}
-    - target: {fileID: -5332417903899381882, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
-      propertyPath: NetworkedBehaviours.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -5332417903899381882, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
-      propertyPath: NetworkedBehaviours.Array.data[0]
-      value: 
-      objectReference: {fileID: 8448632490337488931}
-    - target: {fileID: -5332417903899381882, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
-      propertyPath: NetworkedBehaviours.Array.data[1]
-      value: 
-      objectReference: {fileID: 2547467966966336200}
-    - target: {fileID: -5332417903899381882, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
-      propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
-      value: -827352462117383770
-      objectReference: {fileID: 0}
-    - target: {fileID: -5332417903899381882, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
-      propertyPath: NetworkGuid.RawGuidValue.Array.data[1]
-      value: 5145700359128449592
-      objectReference: {fileID: 0}
     - target: {fileID: 855169504, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -45,15 +21,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 41070045975728275, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.3611145
       objectReference: {fileID: 0}
     - target: {fileID: 41070045975728275, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 41070045975728275, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.672584
       objectReference: {fileID: 0}
     - target: {fileID: 41070045975728275, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
       propertyPath: m_LocalRotation.w
@@ -92,31 +68,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6225662310370509579, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1955067525093288050}
+    - target: {fileID: 6225662310370509579, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 41070045975728279, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
+    - {fileID: 855169504, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
---- !u!114 &2547467966966336200 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6225662310370509579, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
+--- !u!95 &1955067525093288050 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7934878492805390769, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
   m_PrefabInstance: {fileID: 8448632489569356227}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ba38c9530c66d4e96cb29a0bfc5c4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8448632490337488931 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 855169504, guid: b37a86f5f7be674439c64b6a6d61f129, type: 3}
-  m_PrefabInstance: {fileID: 8448632489569356227}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf8423863cd51cd4bb9f495b073d827c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

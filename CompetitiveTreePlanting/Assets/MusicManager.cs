@@ -12,17 +12,22 @@ public class MusicManager : MonoBehaviour
     
     private int currentIndex = 0;
 
-    public void IncreaseTension()
+    public void IncreaseTension(int lvl)
     {
-        currentIndex = (musicSources.Length + currentIndex + 1) % musicSources.Length;
-        TransitionTo(musicSources[currentIndex]);
+        if (lvl > currentIndex)
+        {
+            currentIndex++;
+            currentIndex = (musicSources.Length + currentIndex) % musicSources.Length;
+            TransitionTo(musicSources[currentIndex]);
+        }
+        
     }
 
-    public void DecreaseTension()
+    /*public void DecreaseTension()
     {
         currentIndex = (musicSources.Length + currentIndex - 1) % musicSources.Length;
         TransitionTo(musicSources[currentIndex]);
-    }
+    }*/
 
     private void TransitionTo(AudioSource target)
     {
