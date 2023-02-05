@@ -4,8 +4,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Animator))]
 public class RequirementsBubble : MonoBehaviour
 {
-    [SerializeField] private Image requirementsImage;
-    [SerializeField] private Animator requirementsBubbleAnimator;
     [SerializeField] private Sprite[] requirementSprites;
     [SerializeField] private Image image;
     [SerializeField] private Image shadowImage;
@@ -31,8 +29,10 @@ public class RequirementsBubble : MonoBehaviour
 
     public void ChangeRequirement(int requirement)
     {
-        requirementsImage.sprite = requirementSprites[requirement];
-        requirementsBubbleAnimator.SetTrigger("Show");
+        image.sprite = requirementSprites[requirement];
+        shadowImage.sprite = requirementSprites[requirement];
+
+        animator.SetTrigger("Show");
         Open();
     }
 }
