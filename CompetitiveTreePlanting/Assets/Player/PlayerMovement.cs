@@ -18,6 +18,8 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float dashCooldown = 1;
     [SerializeField] private UnityEvent<Vector3> tryInteract = new UnityEvent<Vector3>();
 
+    [Networked]
+    private Vector2 animatedVector { get; set; }
 
     private Vector2 moveVector = Vector2.zero;
     private Vector2 direction = Vector2.zero;
@@ -61,6 +63,7 @@ public class PlayerMovement : NetworkBehaviour
                 TryDash();
             }
             moveVector = data.direction.normalized;
+            animatedVector = moveVector;
         }
     }
 
@@ -133,7 +136,7 @@ public class PlayerMovement : NetworkBehaviour
 
     public void Update()
     {
-        animator.SetFloat("Speed", rigidbody.velocity.magnitude/8);
+        animator.SetFloat("Speed", animatedVector.magnitude);
     }
 
     private void OnEnable()
