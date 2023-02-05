@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ba38c9530c66d4e96cb29a0bfc5c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunIndicator: {fileID: 0}
+  stunIndicator: {fileID: 1376178096417845434}
   animator: {fileID: 6971495722913748299}
   playerInteraction: {fileID: 253386026}
   deathThreshhold: -1
@@ -315,6 +315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 947afdeb9e318a940bf0a71a1e4b0b2c, type: 3}
+--- !u!1 &1376178096417845434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 878993262115791950, guid: 947afdeb9e318a940bf0a71a1e4b0b2c, type: 3}
+  m_PrefabInstance: {fileID: 2246140734794568948}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3590828803715066074
 PrefabInstance:
   m_ObjectHideFlags: 0
