@@ -2494,30 +2494,6 @@ PrefabInstance:
       value: '#Management'
       objectReference: {fileID: 0}
     - target: {fileID: 1974791875709975799, guid: 62ed06f2cadd556449cadf938335e4fc, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974791875709975799, guid: 62ed06f2cadd556449cadf938335e4fc, type: 3}
-      propertyPath: DrawSpawnArea
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974791875709975799, guid: 62ed06f2cadd556449cadf938335e4fc, type: 3}
-      propertyPath: spawnAreaSize.x
-      value: 8.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974791875709975799, guid: 62ed06f2cadd556449cadf938335e4fc, type: 3}
-      propertyPath: spawnAreaSize.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974791875709975799, guid: 62ed06f2cadd556449cadf938335e4fc, type: 3}
-      propertyPath: spawnAreaSize.z
-      value: 11.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974791875709975799, guid: 62ed06f2cadd556449cadf938335e4fc, type: 3}
-      propertyPath: spawnPositions.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974791875709975799, guid: 62ed06f2cadd556449cadf938335e4fc, type: 3}
       propertyPath: spawnPositions.Array.data[0]
       value: 
       objectReference: {fileID: 441954840}
@@ -2533,22 +2509,6 @@ PrefabInstance:
       propertyPath: spawnPositions.Array.data[3]
       value: 
       objectReference: {fileID: 2077167550}
-    - target: {fileID: 1974791875709975799, guid: 62ed06f2cadd556449cadf938335e4fc, type: 3}
-      propertyPath: _treePrefab.RawGuidValue.Array.data[0]
-      value: -8910801472969181291
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974791875709975799, guid: 62ed06f2cadd556449cadf938335e4fc, type: 3}
-      propertyPath: _treePrefab.RawGuidValue.Array.data[1]
-      value: -3042007887011064501
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974791875709975799, guid: 62ed06f2cadd556449cadf938335e4fc, type: 3}
-      propertyPath: _playerPrefab.RawGuidValue.Array.data[0]
-      value: -8874370628459034074
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974791875709975799, guid: 62ed06f2cadd556449cadf938335e4fc, type: 3}
-      propertyPath: _playerPrefab.RawGuidValue.Array.data[1]
-      value: 6786587288603868554
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62ed06f2cadd556449cadf938335e4fc, type: 3}
 --- !u!1001 &982638999
