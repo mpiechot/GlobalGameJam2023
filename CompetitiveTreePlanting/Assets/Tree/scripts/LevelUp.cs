@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class LevelUp : MonoBehaviour
 {
-    public UnityEvent TreeGrownUp;
+    public UnityEvent<int> TreeGrownUp;
 
     private int level = 0;
     private GameObject currentTree = null;
@@ -36,7 +36,7 @@ public class LevelUp : MonoBehaviour
         }
         else
         {
-            TreeGrownUp?.Invoke();
+            TreeGrownUp?.Invoke(level);
         }
         PlaceTree();
     }
