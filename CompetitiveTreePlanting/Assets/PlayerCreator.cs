@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static Fusion.NetworkCharacterController;
 
 public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
 {
@@ -115,12 +116,13 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
     private bool _hitButton;
     private bool _dashButton;
     private Vector2 moveVector;
+    private float fromToAngle = 0f;
 
     public void OnInput(NetworkRunner runner, NetworkInput input)
     {
         var data = new NetworkInputData();
-
         data.direction = moveVector;
+        data.toRotation = Quaternion.LookRotation(new Vector3(moveVector.x, 0, moveVector.y), Vector3.up); ;
 
         if (_interactButton)
             data.buttons |= NetworkInputData.INTERACT;

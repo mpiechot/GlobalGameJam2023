@@ -11,5 +11,6 @@ namespace MultiplayerDev
 
         public byte buttons;
         public Vector3 direction;
+        public Quaternion toRotation;
     }
 }

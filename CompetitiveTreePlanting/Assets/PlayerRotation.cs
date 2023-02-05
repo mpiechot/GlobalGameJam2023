@@ -28,11 +28,12 @@ public class PlayerRotation : NetworkBehaviour
         if (GetInput(out NetworkInputData data))
         {
             if (data.direction.magnitude > 0.5f)
-                SetRotation(data.direction);
+                RPC_SetRotation(data.direction);
         }
     }
 
-    public void SetRotation(Vector2 movement)
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void RPC_SetRotation(Vector2 movement)
     {
         t = 0;
         fromRotation = avatar.rotation;
