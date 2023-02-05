@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class LevelUp : NetworkBehaviour
 {
     public UnityEvent<int> TreeGrownUp;
+    public UnityEvent<int> TreeLevelUp;
 
     private int level = 0;
     private GameObject currentTree = null;
@@ -34,6 +35,7 @@ public class LevelUp : NetworkBehaviour
         if (level < treeLvls.Length - 1)
         {
             level++;
+            TreeLevelUp?.Invoke(level);
         }
         else
         {
@@ -51,9 +53,6 @@ public class LevelUp : NetworkBehaviour
         newTree.transform.parent = transform;
         newTree.transform.localPosition = Vector3.zero;
         currentTree = newTree;
-
-        
-
     }
 
     private void PauseTreeAnimation(Requirement requirement)

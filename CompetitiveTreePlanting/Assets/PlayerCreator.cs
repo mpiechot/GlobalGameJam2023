@@ -60,7 +60,7 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
             //Create a tree for the player at a random position --> Must be converted to Fusion Callback on player
             NetworkObject networkTreeObject = runner.Spawn(_treePrefab, spawnPositions[spawnIndex].position, Quaternion.identity, player);
             treeReference = networkTreeObject.GetComponent<Tree>();
-            treeReference.GetComponent<LevelUp>().TreeGrownUp.AddListener(TreeLeveledUp);
+            treeReference.GetComponent<LevelUp>().TreeLevelUp.AddListener(TreeLeveledUp);
 
             treeReference.Initialize(playerReference.PlayerId);
             playerReference.SetTree(treeReference);
@@ -75,7 +75,7 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
         if(maxLevel < level)
         {
             maxLevel = level;
-            musicManager.RPC_IncreaseTension(maxLevel);
+            musicManager.IncreaseTension(maxLevel);
         }
     }
 

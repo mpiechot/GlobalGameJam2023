@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicManager : MonoBehaviour
+public class MusicManager : NetworkBehaviour
 {
     [SerializeField, Header("Music should be ordered from normal to dramatic.")] 
     private AudioSource[] musicSources;
@@ -13,8 +13,8 @@ public class MusicManager : MonoBehaviour
     
     private int currentIndex = 0;
 
-    [Rpc(RpcSources.All, RpcTargets.All)]
-    public void RPC_IncreaseTension(int lvl)
+    //[Rpc(RpcSources.All, RpcTargets.All)]
+    public void IncreaseTension(int lvl)
     {
         if (lvl > currentIndex)
         {
@@ -22,7 +22,6 @@ public class MusicManager : MonoBehaviour
             currentIndex = (musicSources.Length + currentIndex) % musicSources.Length;
             TransitionTo(musicSources[currentIndex]);
         }
-        
     }
 
     /*public void DecreaseTension()
