@@ -1,10 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< HEAD
---- !u!1 &1518090562562903177
-=======
 --- !u!1 &878993262115791950
->>>>>>> bf48e924a57f698a772752f22a7d032ed849bd72
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,19 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 7891103307431257777}
-  - component: {fileID: 14435368260054462}
-  - component: {fileID: 4924097118925904121}
-  - component: {fileID: 3254646490041375530}
-=======
   - component: {fileID: 8404082226125950582}
   - component: {fileID: 1806172149655225721}
   - component: {fileID: 6734694373028180030}
   - component: {fileID: 954366721527091175}
   - component: {fileID: 1772509571}
   - component: {fileID: 1772509570}
->>>>>>> bf48e924a57f698a772752f22a7d032ed849bd72
   m_Layer: 0
   m_Name: StunIndicator
   m_TagString: Untagged
@@ -32,64 +21,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
---- !u!4 &7891103307431257777
-=======
 --- !u!4 &8404082226125950582
->>>>>>> bf48e924a57f698a772752f22a7d032ed849bd72
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1518090562562903177}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.015, y: 0.015, z: 0.015}
-=======
   m_GameObject: {fileID: 878993262115791950}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 3.4, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
->>>>>>> bf48e924a57f698a772752f22a7d032ed849bd72
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-<<<<<<< HEAD
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &14435368260054462
-=======
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &1806172149655225721
->>>>>>> bf48e924a57f698a772752f22a7d032ed849bd72
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1518090562562903177}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4924097118925904121
-=======
   m_GameObject: {fileID: 878993262115791950}
   m_Mesh: {fileID: -2231226876340116419, guid: 4bcd9663dbc956b4bac9ed9f82b20861, type: 3}
 --- !u!23 &6734694373028180030
->>>>>>> bf48e924a57f698a772752f22a7d032ed849bd72
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1518090562562903177}
-  m_Enabled: 0
-=======
   m_GameObject: {fileID: 878993262115791950}
   m_Enabled: 1
->>>>>>> bf48e924a57f698a772752f22a7d032ed849bd72
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -102,11 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-<<<<<<< HEAD
-  - {fileID: 2100000, guid: d2272ee4bf7dfeb48b1db94cd9e37450, type: 2}
-=======
   - {fileID: 2100000, guid: c6f2a15342935914e944f042e63d169a, type: 2}
->>>>>>> bf48e924a57f698a772752f22a7d032ed849bd72
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,26 +86,12 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
-<<<<<<< HEAD
---- !u!135 &3254646490041375530
-SphereCollider:
-=======
 --- !u!111 &954366721527091175
 Animation:
->>>>>>> bf48e924a57f698a772752f22a7d032ed849bd72
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1518090562562903177}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
-=======
   m_GameObject: {fileID: 878993262115791950}
   m_Enabled: 1
   serializedVersion: 3
@@ -4946,4 +4890,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
->>>>>>> bf48e924a57f698a772752f22a7d032ed849bd72
