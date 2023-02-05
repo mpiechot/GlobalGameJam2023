@@ -1,3 +1,4 @@
+using Fusion;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,8 @@ public class MusicManager : MonoBehaviour
     
     private int currentIndex = 0;
 
-    public void IncreaseTension(int lvl)
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void RPC_IncreaseTension(int lvl)
     {
         if (lvl > currentIndex)
         {
