@@ -99,7 +99,7 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
 
     private void TryDash()
     {
-        _interactButton = true;
+        _dashButton = true;
     }
 
     private void TryHit()
@@ -109,7 +109,7 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
 
     private void Interact()
     {
-        _dashButton = true;
+        _interactButton = true;
     }
 
     private bool _interactButton;
