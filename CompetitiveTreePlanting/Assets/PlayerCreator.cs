@@ -11,11 +11,12 @@ using static Fusion.NetworkCharacterController;
 public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
 {
     [SerializeField] private bool DrawSpawnArea = false;
-    [SerializeField] private NetworkPrefabRef _playerPrefab;
+    //[SerializeField] private NetworkPrefabRef _playerPrefab;
     [SerializeField] private NetworkPrefabRef _treePrefab;
     [SerializeField] private Vector3 spawnAreaSize;
     [SerializeField] private Transform[] spawnPositions;
     [SerializeField] private MusicManager musicManager;
+    [SerializeField] private NetworkPrefabRef[] playerPrefabs;
 
     private Player playerReference;
     private Tree treeReference;
@@ -51,9 +52,11 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
         {
             int spawnIndex = (player.RawEncoded % runner.Config.Simulation.DefaultPlayers);
 
+            NetworkPrefabRef characterPrefab = this.playerPrefabs[spawnIndex % this.playerPrefabs.Length];
+
             //Vector3 spawnPosition = CreateSpawnPosition();
             Vector3 spawnPosition = new Vector3(spawnIndex * 3, 2, 0);
-            NetworkObject networkPlayerObject = runner.Spawn(_playerPrefab, spawnPosition, Quaternion.identity, player);
+            NetworkObject networkPlayerObject = runner.Spawn(characterPrefab, spawnPosition, Quaternion.identity, player);
             playerReference = networkPlayerObject.GetComponent<Player>();
 
             //Initialize the Player to set his personal id --> Must be converted to Fusion Callback on player
