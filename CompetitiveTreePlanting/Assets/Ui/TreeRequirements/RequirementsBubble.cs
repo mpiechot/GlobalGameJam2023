@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class RequirementsBubble : MonoBehaviour
 {
     [SerializeField] private Image image;
+    [SerializeField] private Image shadowImage;
+
     private Animator animator;
 
     private void Start()
@@ -30,6 +32,7 @@ public class RequirementsBubble : MonoBehaviour
     public void ChangeRequirement(Sprite requirement)
     {
         image.sprite = requirement;
+        shadowImage.sprite = requirement;
         Open();
     }
 }
