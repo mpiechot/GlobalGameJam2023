@@ -8,7 +8,7 @@ public class RequirementsContainer : MonoBehaviour
     private Requirement[] requirementTypes;
 
     [SerializeField]
-    private Animator requirementsBubbleAnimator;
+    private RequirementsBubble bubble;
 
     public Requirement[] RequirementTypes
     {
@@ -22,6 +22,6 @@ public class RequirementsContainer : MonoBehaviour
 
     public void DeactivateRequirements()
     {
-        requirementsBubbleAnimator.SetTrigger("Hide");
+        bubble.Close();
     }
 }

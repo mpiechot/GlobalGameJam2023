@@ -4,14 +4,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Animator))]
 public class RequirementsBubble : MonoBehaviour
 {
-    [SerializeField] private Image requirementsImage;
-    [SerializeField] private Animator requirementsBubbleAnimator;
+    [SerializeField] private Image image;
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        Close();
+    }
+
+    public void Close()
+    {
+        animator.SetTrigger("Hide");
+    }
+
+    public void Open()
+    {
+        animator.SetTrigger("Show");
+
+    }
 
     public void ChangeRequirement(Sprite requirement)
     {
-        requirementsImage.sprite = requirement;
-        requirementsBubbleAnimator.SetTrigger("Show");
+        image.sprite = requirement;
+        Open();
     }
 }

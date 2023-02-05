@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerInteraction playerInteraction;
     [SerializeField] private float deathThreshhold;
 
+    [SerializeField] Color color;
+
+    public Color Color { get { return color; } }
+
     private Guid playerId;
     private Tree playerTree;
 
@@ -41,6 +45,7 @@ public class Player : MonoBehaviour
     public void SetTree(Tree tree)
     {
         playerTree = tree;
+        tree.SetOwner(this);
     }
 
     public void Respawn()
