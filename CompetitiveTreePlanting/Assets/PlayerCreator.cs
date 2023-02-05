@@ -24,6 +24,9 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
 
     private Dictionary<PlayerRef, NetworkObject[]> _spawnedCharacters = new Dictionary<PlayerRef, NetworkObject[]>();
 
+    public delegate void Action();
+    public event Action OnConnected;
+
     private Vector3 CreateSpawnPosition()
     {
         return spawnAreaCenter + new Vector3(
@@ -164,6 +167,7 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnConnectedToServer(NetworkRunner runner)
     {
+        OnConnected.Invoke();
     }
 
     public void OnDisconnectedFromServer(NetworkRunner runner)
@@ -192,6 +196,7 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken)
     {
+        OnConnected.Invoke();
     }
 
     public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, System.ArraySegment<byte> data)
@@ -208,21 +213,21 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
 
     private NetworkRunner _runner;
 
-    private void OnGUI()
-    {
-        if (_runner == null)
-        {
-            if (GUI.Button(new Rect(0, 0, 200, 40), "Host"))
-            {
-                StartGame(GameMode.Host);
-            }
-            if (GUI.Button(new Rect(0, 40, 200, 40), "Join"))
-            {
-                StartGame(GameMode.Client);
-            }
-        }
-    }
-    async void StartGame(GameMode mode)
+    //private void OnGUI()
+    //{
+    //    if (_runner == null)
+    //    {
+    //        if (GUI.Button(new Rect(0, 0, 200, 40), "Host"))
+    //        {
+    //            StartGame(GameMode.Host);
+    //        }
+    //        if (GUI.Button(new Rect(0, 40, 200, 40), "Join"))
+    //        {
+    //            StartGame(GameMode.Client);
+    //        }
+    //    }
+    //}
+    public async void StartGame(GameMode mode)
     {
         // Create the Fusion runner and let it know that we will be providing user input
         _runner = gameObject.AddComponent<NetworkRunner>();
