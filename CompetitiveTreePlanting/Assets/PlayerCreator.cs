@@ -122,7 +122,7 @@ public class PlayerCreator : MonoBehaviour, INetworkRunnerCallbacks
     {
         var data = new NetworkInputData();
         data.direction = moveVector;
-        data.toRotation = Quaternion.LookRotation(new Vector3(moveVector.x, 0, moveVector.y), Vector3.up); ;
+        data.toRotation = moveVector.magnitude < 0.01f ? Quaternion.identity : Quaternion.LookRotation(new Vector3(moveVector.x, 0, moveVector.y), Vector3.up); ;
 
         if (_interactButton)
             data.buttons |= NetworkInputData.INTERACT;
